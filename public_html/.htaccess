@@ -1,6 +1,6 @@
-AuthUserFile ../.htpasswd
-AuthName "Pinger"
+<files "admin.php"> 
+AuthUserFile /.htpasswd
+AuthName "CMS Administrator"
 AuthType Basic
-<Limit GET POST>
-require valid-user
-</Limit>
+Require valid-user
+</files>

@@ -1,4 +1,5 @@
 <?php
+require_once "classes/Base.php";
 require_once "classes/Config.php";
 require_once "classes/Reader.php";
 require_once "classes/Render.php";

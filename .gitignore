@@ -1,3 +1,4 @@
 public_html/*
 !public_html/.htaccess
+!public_html/admin.php
 config.json

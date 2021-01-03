@@ -1,8 +1,7 @@
 <?php
 
-class StaticWriter {
+class StaticWriter extends Base {
 
-    const DIRECTORY_PATH_MODIFICATOR = '.' . DIRECTORY_SEPARATOR;
     const OUTPUT_EXTENSION = ".html";
     const BACKUP_EXTENSION = ".bak";
     private $now = "";
@@ -58,8 +57,8 @@ class StaticWriter {
     }
 
     private function installStatic($static) {
-        $public_path = self::DIRECTORY_PATH_MODIFICATOR . $this->public_path . DIRECTORY_SEPARATOR;
-        $static_path = self::DIRECTORY_PATH_MODIFICATOR . "static" . DIRECTORY_SEPARATOR;
+        $public_path = $this->pathMe() . $this->public_path . DIRECTORY_SEPARATOR;
+        $static_path = $this->pathMe() . "static" . DIRECTORY_SEPARATOR;
         if (file_exists($public_path . $static)) {
             $this->_recurseRmdir($public_path . $static);
         }
@@ -70,7 +69,7 @@ class StaticWriter {
     }
 
     private function getPathAndFilename($render_profile_name, $extension = OUTPUT_EXTENSION) {
-        return self::DIRECTORY_PATH_MODIFICATOR . $this->public_path . DIRECTORY_SEPARATOR . 
+        return $this->pathMe() . $this->public_path . DIRECTORY_SEPARATOR . 
             $this->config->getRenderProfile($render_profile_name)["slug"] . $extension;
         
     }

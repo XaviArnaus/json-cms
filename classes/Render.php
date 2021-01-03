@@ -1,8 +1,7 @@
 <?php
 
-class Render {
+class Render extends Base{
 
-    const DIRECTORY_PATH_MODIFICATOR = '.' . DIRECTORY_SEPARATOR;
     const LISTED_PREFIX = "listed_";
 
     private $now;
@@ -19,11 +18,11 @@ class Render {
         $this->choosen_template = $config->getParam("display_template", "default");
         $this->config = $config;
         $this->templates = [
-            "styles" => self::DIRECTORY_PATH_MODIFICATOR . "templates/" . $this->choosen_template . "/styles.css",
-            "layout" => self::DIRECTORY_PATH_MODIFICATOR . "templates/" . $this->choosen_template . "/layout.html",
-            "css_item" => self::DIRECTORY_PATH_MODIFICATOR . "templates/" . $this->choosen_template . "/css_item.html",
-            "js_item" => self::DIRECTORY_PATH_MODIFICATOR . "templates/" . $this->choosen_template . "/js_item.html",
-            "navigation_item" => self::DIRECTORY_PATH_MODIFICATOR . "templates/" . $this->choosen_template . "/navigation_item.html",
+            "styles" => $this->pathMe() . "templates/" . $this->choosen_template . "/styles.css",
+            "layout" => $this->pathMe() . "templates/" . $this->choosen_template . "/layout.html",
+            "css_item" => $this->pathMe() . "templates/" . $this->choosen_template . "/css_item.html",
+            "js_item" => $this->pathMe() . "templates/" . $this->choosen_template . "/js_item.html",
+            "navigation_item" => $this->pathMe() . "templates/" . $this->choosen_template . "/navigation_item.html",
         ];
 
         $this->buildEntitiesTemplates();
@@ -93,8 +92,7 @@ class Render {
 
     private function buildEntitiesTemplates() {
         foreach ($this->config->getEntities() as $entity_name => $params) {
-            $this->entities_templates[$entity_name] = self::DIRECTORY_PATH_MODIFICATOR . 
-                "templates" . DIRECTORY_SEPARATOR .
+            $this->entities_templates[$entity_name] = $this->pathMe() . "templates" . DIRECTORY_SEPARATOR .
                 $this->choosen_template . DIRECTORY_SEPARATOR .
                 sprintf("%s.html", self::LISTED_PREFIX . $params["template"]);
         }
@@ -102,8 +100,7 @@ class Render {
 
     private function buildSectionsTemplates() {
         foreach ($this->config->getRenderProfiles() as $render_profile => $params) {
-            $this->sections_templates[$render_profile] = self::DIRECTORY_PATH_MODIFICATOR . 
-                "templates" . DIRECTORY_SEPARATOR .
+            $this->sections_templates[$render_profile] = $this->pathMe() . "templates" . DIRECTORY_SEPARATOR .
                 $this->choosen_template . DIRECTORY_SEPARATOR .
                 sprintf("%s.html", $params["template"]);
         }

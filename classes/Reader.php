@@ -1,8 +1,6 @@
 <?php
 
-class Reader {
-
-    const DIRECTORY_PATH_MODIFICATOR = '.' . DIRECTORY_SEPARATOR;
+class Reader extends Base{
 
     private $now;
     private $latest;
@@ -36,8 +34,8 @@ class Reader {
 
     private function instantiateEntity($entity_name, $content) {
         $entity_class = $this->getEntityClassFilename($entity_name);
-        if (file_exists($entity_class)) {
-            require_once $entity_class;
+        if (file_exists($this->pathMe() . $entity_class)) {
+            require_once $this->pathMe() . $entity_class;
             $instance = new $entity_name();
             if ($content) $instance->load($content);
             return $instance;
@@ -54,7 +52,7 @@ class Reader {
     }
 
     private function getEntityDbLatestFilename($entity_name) {
-        return sprintf(self::DIRECTORY_PATH_MODIFICATOR . $this->db_path_template,
+        return sprintf($this->pathMe() . $this->db_path_template,
             $this->config->getEntity($entity_name)["db_slug"],
             $this->slug_latest
         );
