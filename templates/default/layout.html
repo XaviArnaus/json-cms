@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>{%-TITLE-%}</title>
+        <meta name="description" content="{%-DESCRIPTION-%}">
+        <link rel="icon" href="{%-FAVICON-%}" type="image/png">
+{%-CSS-%}
+        </head>
+    <body>
+
+        <!-- Load Bludit Plugins: Site Body Begin -->
+        
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark text-uppercase">
+        <div class="container">
+            <a class="navbar-brand" href="{%-SITE_URL-%}">
+                <span class="text-white">{%-TITLE-%}</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+{%-NAVIGATION-%}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+        <!-- Content frame -->
+        <section class="home_banner_area">
+            <div class="container box_1620">
+                <div class="banner_inner d-flex align-items-center">
+                    <div class="banner_content">
+
+                        <!-- Content -->
+                        <div class="container">
+                            <div class="row">
+
+                                <!-- Blog Posts -->
+                                <div class="col-md-9">
+                                    {%-CONTENT-%}
+                                </div>
+
+                                <!-- Right Sidebar -->
+                                <div class="col-md-3">
+                                    <strong>Sidebar</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        
+        <!-- Javascript -->
+{%-JS-%}
+        
+    </body>
+</html>

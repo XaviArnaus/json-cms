@@ -1,0 +1,36 @@
+{
+  "last_update": "2020-01-02 06:00:00",
+  "db_path": "json_dbs/%s_%s.jsonl",
+  "public_path": "public_html",
+  "slug_latest": "latest",
+  "entities_path": "entities",
+  "filename_template": "generated_at_%s_%s.json",
+  "display_template": "default",
+  "entities": [
+    {"name": "Post", "collection": "posts", "db_slug": "posts", "template": "post"}
+  ],
+  "render_profiles": [
+    {"name": "home", "slug": "index", "sorting": "date", "grouping": "feed", "template": "home"},
+    {"name": "posts", "slug": "posts", "sorting": "date", "grouping": "entity", "template": "posts"}
+  ],
+  "layout": {
+    "metadata": {
+      "site_url": "http://mysite.com",
+      "title": "This is my site",
+      "description": "This an awesome JSON & PHP site",
+      "favicon": "img/favicon.png",
+      "css": [
+        "css/bootstrap.min.css",
+        "css/responsive.css",
+        "css/style.css",
+        "css/font-awesome.min.css",
+        "vendors/linericon/style.css",
+        "vendors/flaticon/flaticon.css"
+      ],
+      "js": [
+        "js/jquery.min.js",
+        "js/bootstrap.bundle.min.js"
+      ]
+    }
+  }
+}
